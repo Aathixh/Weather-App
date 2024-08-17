@@ -12,7 +12,7 @@ This is a simple weather application that provides real-time weather information
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/Weather-App.git`
+1. Clone the repository: `git clone https://github.com/Aathixh/Weather-App.git`
 2. Navigate to the project directory: `cd Weather-App`
 3. Install the dependencies: `npm install`
 4. Start the application: `npm start`
