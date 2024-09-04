@@ -7,8 +7,8 @@ const App = () => {
   return (
     <View style={styles.container}>
       {/* <UpcomingWeather /> */}
-      {/* <CurrentWeather /> */}
-      <City />
+      <CurrentWeather />
+      {/* <City /> */}
     </View>
   )
 }
