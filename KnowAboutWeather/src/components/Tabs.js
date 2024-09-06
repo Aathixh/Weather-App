@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import CurrentWeather from '../screens/CurrentWeather'
 import UpcomingWeather from '../screens/UpcomingWeather'
@@ -6,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons'
 const Tab = createBottomTabNavigator()
 
-const Tabs = () => {
+const Tabs = ({ weather }) => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -25,7 +26,6 @@ const Tabs = () => {
     >
       <Tab.Screen
         name={'CurrentWeather'}
-        component={CurrentWeather}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -35,10 +35,11 @@ const Tabs = () => {
             />
           ),
         }}
-      />
+      >
+        {() => <CurrentWeather weatherData={weather.list[0]} />}
+      </Tab.Screen>
       <Tab.Screen
         name={'UpcomingWeather'}
-        component={UpcomingWeather}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -48,10 +49,11 @@ const Tabs = () => {
             />
           ),
         }}
-      />
+      >
+        {() => <UpcomingWeather weatherData={weather.list} />}
+      </Tab.Screen>
       <Tab.Screen
         name={'City'}
-        component={City}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -61,7 +63,9 @@ const Tabs = () => {
             />
           ),
         }}
-      />
+      >
+        {() => <City weatherData={weather.city} />}
+      </Tab.Screen>
     </Tab.Navigator>
   )
 }
